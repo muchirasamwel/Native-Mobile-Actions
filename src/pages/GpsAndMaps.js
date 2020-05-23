@@ -23,7 +23,7 @@ class HomePage extends React.Component {
             <SafeAreaProvider initialSafeAreaInsets={initialWindowSafeAreaInsets}>
                 <View style={styles.container}>
                     {/*<Header title="Shopping List"></Header>*/}
-                    <Text>Image works </Text>
+                    <Text>GPRS </Text>
                 </View>
             </SafeAreaProvider>
         );

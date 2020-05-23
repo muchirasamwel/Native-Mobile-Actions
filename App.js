@@ -7,7 +7,7 @@ import {createDrawerNavigator} from 'react-navigation-drawer';
 
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 import HomeScreen from './src/pages/HomePage';
-import ImageScreen from './src/pages/ImageryPage';
+import ImageScreen from './src/pages/GpsAndMaps';
 
 class MyMenu extends Component {
     toggleDrawer = () => {
@@ -61,13 +61,13 @@ const DrawerNavigatorExample = createDrawerNavigator({
     Screen1: {
         screen: Navigation1,
         navigationOptions: {
-            drawerLabel: 'Home',
+            drawerLabel: 'Image Works',
         },
     },
     Screen2: {
         screen: Navigation2,
         navigationOptions: {
-            drawerLabel: 'Image Works',
+            drawerLabel: 'GPS and Maps',
         },
     },
 });
