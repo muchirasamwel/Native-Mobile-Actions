@@ -1,13 +1,14 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
+import {base_url} from "../mixins/global_vars";
 
 const ListItem = ({item}) => {
   return (
     <TouchableOpacity style={styles.listItem}>
       <View style={styles.listItemView}>
         <Image
-          source={require('../assets/item1.png')}
+          source={{uri:base_url+'image/'+item.avatar}}
           style={styles.listImage}
         />
         <Text style={styles.ListItemText}>{item.name}</Text>
@@ -39,8 +40,9 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   listImage: {
-    width: 50,
-    height: 50,
+    borderRadius:100/2,
+    width: 40,
+    height: 40,
   },
   delete: {
     position: 'absolute',
