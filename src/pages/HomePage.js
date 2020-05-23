@@ -19,8 +19,7 @@ import {connect} from 'react-redux';
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 import ListItem from "../components/ListItem";
 import Loader from "../components/Loader";
-
-const Height = Dimensions.get('window').height;
+import {Styles} from "./Styles"
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -109,9 +108,9 @@ class HomePage extends React.Component {
     render() {
         return (
             <SafeAreaProvider initialSafeAreaInsets={initialWindowSafeAreaInsets}>
-                <View style={styles.container}>
+                <View style={Styles.container}>
                 <Loader preLoaderVisible={this.state.loading}/>
-                    <View style={styles.avatar}>
+                    <View style={Styles.avatar}>
                         <Image style={{flex: 1, width: undefined, height: undefined}}
                                source={{
                                    uri: 'data:image/jpeg;base64,' + this.state.image.data,
@@ -123,31 +122,31 @@ class HomePage extends React.Component {
                     {/*    source={{uri: this.state.resourcePath.uri}}*/}
                     {/*    style={{width: 200, height: 200}}*/}
                     {/*/>*/}
-                    <View style={styles.form}>
+                    <View style={Styles.form}>
                         <TextInput
                             placeholder="User Name"
-                            style={styles.input}
+                            style={Styles.input}
                             value={this.state.form_data.name}
                             onChangeText={this.onChange}
                         />
                         <TextInput
                             placeholder="Specialization"
-                            style={styles.input}
+                            style={Styles.input}
                             value={this.state.form_data.specialization}
                             onChangeText={this.onChange1}
                         />
-                        <View style={styles.btn_group}>
-                            <TouchableOpacity onPress={this.selectFile} style={styles.button}>
-                                <Text style={styles.buttonText}>Select Avatar</Text>
+                        <View style={Styles.btn_group}>
+                            <TouchableOpacity onPress={this.selectFile} style={Styles.primaryBtn}>
+                                <Text style={Styles.primaryBtnText}>Select Avatar</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={styles.add_btn} onPress={() => this.addImageItem()}>
+                            <TouchableOpacity style={Styles.successBtn} onPress={() => this.addImageItem()}>
                                 <Icon name="add" color="black" size={25}/>
-                                <Text style={styles.addBtnText}>Add Account</Text>
+                                <Text style={Styles.successBtnText}>Add Account</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
                     <FlatList
-                        style={styles.imageList}
+                        style={Styles.imageList}
                         data={this.props.items}
                         keyExtractor = { (item, index) => index.toString() }
                         renderItem={({item}) => (
@@ -160,72 +159,6 @@ class HomePage extends React.Component {
     }
 }
 
-const styles = StyleSheet.create({
-    avatar: {
-        width: '100%',
-        height: Height / 4,
-    },
-    imageList: {
-        width:'100%',
-        marginTop: 12,
-        //alignSelf: 'stretch',
-    },
-    scroll: {
-        width: '100%',
-    },
-    container: {
-        width: '100%',
-        flex: 1,
-        padding: 20,
-        alignItems: 'center',
-        backgroundColor: '#fff',
-        height: Height,
-        // backgroundColor:'red',
-    },
-    button: {
-        flex: 1,
-        borderRadius: 100 / 2,
-        width: '40%',
-        height: 40,
-        padding: 7,
-        margin: 2,
-        backgroundColor: '#3740ff',
-    },
-    buttonText: {
-        textAlign: 'center',
-        fontSize: 15,
-        color: '#fff',
-    },
-    form: {
-        width: '100%',
-        marginBottom: 35,
-    },
-    add_btn: {
-        borderRadius: 100 / 2,
-        width: '40%',
-        height: 40,
-        backgroundColor: '#18ff56',
-        margin: 3,
-        padding: 5,
-        flex: 1,
-        flexDirection: 'row',
-    },
-    btn_group: {
-        paddingTop: 5,
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-between'
-    },
-    addBtnText: {
-        alignSelf: 'center',
-        fontWeight: 'bold'
-    },
-    input: {
-        borderBottomWidth: 1,
-        borderBottomColor: 'gray',
-        marginBottom: 2
-    }
-});
 
 function mapStateToProps(state) {
     return {
