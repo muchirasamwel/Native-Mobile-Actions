@@ -1,6 +1,7 @@
 import * as type from "../constants/action-types"
 
 const initialState = {
+    place:'',
     items: [],
     authors:[{name:'hen'}],
 };
@@ -14,6 +15,10 @@ function rootReducer(state = initialState, action) {
         case type.ADD_ITEM:
             return Object.assign({}, state, {
                 items: state.items.concat(action.item)
+            });
+        case type.FETCH_PLACE:
+            return Object.assign({}, state, {
+                place: action.place
             });
         case type.DELETE_ITEM:
             alert("Item Deleted successfully");

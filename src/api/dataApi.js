@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {handleResponse, handleError} from './apiUtils'
+import {handleResponse, handleError, PlaceAPI} from './apiUtils'
 import {Platform} from "react-native";
 import {base_url} from '../mixins/global_vars';
 
@@ -10,13 +10,22 @@ const config = {
     }
 }
 
+const api_key=PlaceAPI;
+
 export async function getItems() {
     return await axios
         .get(base_url + 'get-items')
         .then(handleResponse)
         .catch(handleError);
 };
-
+export async function getPlace(latLong) {
+    return await axios
+        .get("http://api.positionstack.com/v1/reverse?access_key="+api_key+"&query="+latLong)
+        .then(resp=>{
+            return resp.data;
+        })
+        // .catch(handleError);
+};
 export async function addItem(photo, body) {
     let formData = createFormData(photo, body);
     return await

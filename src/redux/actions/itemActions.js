@@ -9,6 +9,14 @@ export function loadItemsSuccess(items) {
     return {type: type.FETCH_ITEMS, items}
 };
 
+export function fetchPlace(latLong) {
+    return function (dispatch) {
+        return itemApi.getPlace(latLong).then(place => {
+            dispatch({type: type.FETCH_PLACE, place});
+        });
+    }
+};
+
 export function fetchItems() {
     return function (dispatch) {
         return itemApi.getItems().then(items => {
@@ -23,7 +31,7 @@ export function fetchItems() {
 export function addItem(photo, body) {
     return function (dispatch) {
         return itemApi.addItem(photo, body).then((resp) => {
-            let item=resp.data;
+            let item = resp.data;
             console.log(item);
             if (item != null) {
                 Alert.alert('Success', 'Account Added ');

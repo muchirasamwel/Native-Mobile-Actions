@@ -67,5 +67,22 @@ export const Styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: 'gray',
         marginBottom: 2
+    },
+    map:{
+        height:Height/1.7,
+        width:'100%',
+        backgroundColor:'red'
+    },
+    floatingZoomIn:{
+        position:'absolute',
+        right:10,
+        top:10,
+        zIndex:999,
+    },
+    floatingZoomOut:{
+        position:'absolute',
+        right:10,
+        top:50,
+        zIndex:999,
     }
 });
