@@ -43,7 +43,7 @@ const Navigation2 = createStackNavigator({
         screen: ImageScreen,
         navigationOptions: ({navigation}) => ({
             title: 'React Actions',
-             headerRight: <MyMenu page={'Home'} navigationProps={navigation}/>,
+             headerRight:()=> <MyMenu page={'Home'} navigationProps={navigation}/>,
             headerStyle: {
                 backgroundColor: config.bg,
             },

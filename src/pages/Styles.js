@@ -25,21 +25,23 @@ export const Styles = StyleSheet.create({
         // backgroundColor:'red',
     },
     primaryBtn: {
+        flexWrap: "wrap",
         borderRadius: 100 / 2,
-        width: '40%',
         height: 40,
         padding: 7,
         margin: 3,
         backgroundColor: '#3740ff',
+        flexDirection: 'row',
     },
     primaryBtnText: {
         textAlign: 'center',
         fontSize: 15,
         color: '#fff',
+        marginHorizontal:8
     },
     successBtn: {
+        flexWrap: 'wrap',
         borderRadius: 100 / 2,
-        width: '40%',
         height: 40,
         backgroundColor: '#18ff56',
         margin: 3,
@@ -50,7 +52,9 @@ export const Styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 15,
         alignSelf: 'center',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        marginHorizontal:10
+
     },
     form: {
         width: '100%',
@@ -84,5 +88,40 @@ export const Styles = StyleSheet.create({
         right:10,
         top:50,
         zIndex:999,
-    }
+    },
+    place_container:{
+        flex:1,
+        margin:10
+        // alignItems:'center'
+    },
+    place:{
+        margin:5,
+        fontSize:20,
+        marginLeft:5,
+
+    },
+    street:{
+        margin:5,
+        fontSize:18,
+        marginLeft:5,
+
+    },
+    city_country:{
+        margin:5,
+        fontSize:16,
+        marginLeft:5,
+    },
+    row:{
+        flex:1,
+        flexDirection:'row',
+    },
+    search_container:{
+        flex:1,
+        marginHorizontal:8,
+    },
+    search_nav: {
+        marginBottom:5,
+        flex: 1,
+        flexDirection: 'row',
+    },
 });

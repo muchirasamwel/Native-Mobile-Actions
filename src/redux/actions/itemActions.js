@@ -16,6 +16,14 @@ export function fetchPlace(latLong) {
         });
     }
 };
+export function fetchLocation(place) {
+    return function (dispatch) {
+        return itemApi.getLocation(place).then(coordinates => {
+            dispatch({type: type.FETCH_COORDINATES, coordinates});
+        });
+    }
+};
+
 
 export function fetchItems() {
     return function (dispatch) {

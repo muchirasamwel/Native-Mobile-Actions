@@ -1,6 +1,7 @@
 import * as type from "../constants/action-types"
 
 const initialState = {
+    coordinates:{},
     place:'',
     items: [],
     authors:[{name:'hen'}],
@@ -15,6 +16,10 @@ function rootReducer(state = initialState, action) {
         case type.ADD_ITEM:
             return Object.assign({}, state, {
                 items: state.items.concat(action.item)
+            });
+        case type.FETCH_COORDINATES:
+            return Object.assign({}, state, {
+                coordinates: action.coordinates
             });
         case type.FETCH_PLACE:
             return Object.assign({}, state, {
