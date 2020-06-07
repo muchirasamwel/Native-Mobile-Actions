@@ -2,24 +2,21 @@ import React from 'react';
 import {
     FlatList,
     Image,
-    StyleSheet,
     Text,
     TextInput,
     TouchableOpacity,
-    View,
-    ScrollView,
-    Dimensions, Alert
+    View, Alert
 } from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 import {initialWindowSafeAreaInsets, SafeAreaProvider} from 'react-native-safe-area-context';
-
 import {bindActionCreators} from 'redux';
 import * as itemActions from '../redux/actions/itemActions';
 import {connect} from 'react-redux';
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 import ListItem from "../components/ListItem";
 import Loader from "../components/Loader";
-import {Styles} from "./Styles"
+import {Styles} from "./Styles";
+import PushNotification from '../mixins/push_notification'
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -74,6 +71,10 @@ class HomePage extends React.Component {
     };
 
     componentDidMount() {
+        PushNotification.localNotification({
+            title:'Hi',
+            message:'Thank you for Using Native Actions'
+        });
         this.setState({
             loading: true
         });

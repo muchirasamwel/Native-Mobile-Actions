@@ -9,7 +9,7 @@ import MapView, {Marker} from "react-native-maps";
 import Loader from "../components/Loader";
 import Icon from "react-native-vector-icons/dist/MaterialIcons";
 import Geocoder from "react-native-geocoding";
-
+import PushNotifications from '../mixins/push_notification'
 class GpsAndMaps extends React.Component {
     state = {
         search: '',
@@ -154,6 +154,10 @@ class GpsAndMaps extends React.Component {
                 street: this.props.place.data[0].street,
             }
         });
+        PushNotifications.localNotification({
+            title:'You are at '+this.props.place.data[0].name,
+            message:this.props.place.data[0].region + ', ' + this.props.place.data[0].country
+        })
         // console.log(this.props.place);
     };
     searchChanged=(search)=>{
