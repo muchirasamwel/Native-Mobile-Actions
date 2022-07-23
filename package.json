@@ -36,7 +36,7 @@
     "babel-jest": "^26.0.1",
     "cors": "^2.8.5",
     "eslint": "^7.0.0",
-    "file-type": "^14.4.0",
+    "file-type": "^16.5.4",
     "formidable": "^1.2.2",
     "jest": "^26.0.1",
     "metro-react-native-babel-preset": "^0.59.0",
